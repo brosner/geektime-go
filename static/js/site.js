@@ -1,38 +1,5 @@
 /** @jsx React.DOM */
 
-function updateTime() {
-    var d = new Date();
-    var h = d.getUTCHours();
-    var m = d.getUTCMinutes();
-    var s = d.getUTCSeconds();
-    var ms = d.getUTCMilliseconds();
-    var geektime = Math.round(65536 * (3600000 * h + 60000 * m + 1000 * s + ms) / (24 * 60 * 60 * 1000));
-    $('#geekchar').html("&#x" + geektime.toString(16) + ";");
-
-    var padding = "";
-    if (geektime < 0x1000) padding = "0";
-    if (geektime < 0x100) padding = "00";
-    if (geektime < 0x10) padding = "000";
-    geektime = "0x" + padding + geektime.toString(16).toUpperCase();
-
-    geektime_first = geektime.slice(0, 4);
-    geektime_second = geektime.slice(4, 6);
-
-    $('#geektime').html(geektime_first + "<span class='minor'>" + geektime_second + "</span>");
-    $("#geektime").attr("href", "/" + geektime_first + geektime_second);
-
-    var yy = d.getUTCFullYear();
-    var mm = d.getUTCMonth();
-    var dd = d.getUTCDate();
-
-    var geekdate = Math.round((Date.UTC(yy, mm, dd) - Date.UTC(yy, 0, 1)) / (24 * 60 * 60 * 1000));
-    padding = "";
-    if (geekdate < 0x100) padding = "0";
-    if (geekdate < 0x10) padding = "00";
-    geekdate = "0x" + padding + geekdate.toString(16).toUpperCase();
-    $('#geekdate').html(geekdate);
-}
-
 var GeekTime = React.createClass({
     getInitialState: function() {
         return {};
