@@ -1,14 +1,17 @@
 package main
 
 import (
-	"fmt"
-	"log"
+	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "hello world")
+	r := gin.Default()
+	r.LoadHTMLTemplates("templates/*")
+	r.GET("/", func(c *gin.Context) {
+		h := gin.H{}
+		c.HTML(200, "index.html", h)
 	})
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	r.Static("/static", "static-build")
+	http.ListenAndServe(":8080", r)
 }

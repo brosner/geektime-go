@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geek Time</title>
+    <style>
+      body {
+        margin-top: 50px;
+        font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+        font-weight: 300;
+        letter-spacing: 1pt;
+        text-align: center;
+        color: #335;
+        background: #FAFAFA;
+      }
+      a#geektime {
+        text-decoration:none;
+        color: #335;
+      }
+      h1 a {
+        text-decoration: none;
+        color: #335;
+      }
+      #geektime {
+        font-family: monospace;
+        font-size: 48pt;
+      }
+      #geekdate {
+        font-family: monospace;
+        font-size: 24pt;
+        font-weight: 400;
+      }
+      #geekchar {
+        font-family: "Lucida Grande", "Lucida Sans Unicode";
+        font-size: 48pt;
+        line-height: 72pt;
+      }
+      .minor {
+        color: #669;
+      }
+      b {
+          font-weight: 900;
+      }
+      h1 {
+        font-size: 36pt;
+      }
+      .faq {
+        margin: 50px auto;
+        width: 600px;
+        text-align: justify;
+      }
+      .faq h2 {
+        font-size: 12pt;
+        margin: 0;
+      }
+      .faq p {
+        font-size: 10pt;
+        margin: 0.5em 0 1em;
+        line-height: 1.2em;
+      }
+      span.timezone {
+        color: #888;
+        font-size: 9pt;
+      }
+      .nav1 {
+        margin: 50px auto 0;
+        width: 700px;
+        background: #CCC;
+      }
+      .nav1 a {
+          color: white;
+          font-weight: 600;
+          padding: 3px 6px;
+          line-height: 18pt;
+          text-decoration: none;
+          cursor: pointer;
+      }
+      .nav1.t10 a.t10,
+      .nav1.t11 a.t11,
+      .nav1.t12 a.t12,
+      .nav1.t13 a.t13,
+      .nav1.t14 a.t14,
+      .nav1.t15 a.t15,
+      .nav1.t16 a.t16,
+      .nav1.t17 a.t17,
+      .nav1.t18 a.t18,
+      .nav1.t19 a.t19,
+      .nav1.t1A a.t1A,
+      .nav1.t1B a.t1B,
+      .nav1.t1C a.t1C,
+      .nav1.t1D a.t1D,
+      .nav1.t1E a.t1E,
+      .nav1.t1F a.t1F {
+          background: #335;
+      }
+      .nav2 {
+          margin: 0 auto;
+          width: 700px;
+          font-weight: 600;
+          background: #335;
+          line-height: 18pt;
+      }
+      .nav2 a {
+          padding: 3px 6px;
+          color: white;
+          text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1><a href="/">Geek Time</a></h1>
+    <div>The <b>Geek Time</b> is currently</div>
+    <div id="geekwrapper">
+        <a href="" id="geektime">...</a>
+        <div>on day <span id="geekdate">...</span></div>
+        <div id="geekchar">...</div>
+    </div>
+
+    <div class="nav1">
+        <a href="/00/" class="t10">00</a>
+        <a href="/10/" class="t11">10</a>
+        <a href="/20/" class="t12">20</a>
+        <a href="/30/" class="t13">30</a>
+        <a href="/40/" class="t14">40</a>
+        <a href="/50/" class="t15">50</a>
+        <a href="/60/" class="t16">60</a>
+        <a href="/70/" class="t17">70</a>
+        <a href="/80/" class="t18">80</a>
+        <a href="/90/" class="t19">90</a>
+        <a href="/A0/" class="t1A">A0</a>
+        <a href="/B0/" class="t1B">B0</a>
+        <a href="/C0/" class="t1C">C0</a>
+        <a href="/D0/" class="t1D">D0</a>
+        <a href="/E0/" class="t1E">E0</a>
+        <a href="/F0/" class="t1F">F0</a>
+    </div>
+
+    <p>Follow <a href="http://twitter.com/geektime">@geektime</a> on Twitter.</p>
+    <div class="faq">
+      <h2>What is Geek Time?</h2>
+      <p>There are 86,400 seconds in a day. The closest power of two is 65,536. Instead of using seconds, <b>Geek Time</b> divides the day into 65,536 units and
+        then displays those units, relative to coordinated universal time (UTC), in hexadecimal.</p>
+      <p>The day is just the 0-indexed day of the year in hexadecimal (at UTC).</p>
+      <p>The glyph underneath is (assuming your browser supports it) an example of the Unicode character at the code point corresponding to the current Geek Time.
+          The idea to include this was suggested by <a href="http://twitter.com/joshourisman">@joshourisman</a>.</p>
+      <h2>What use is it?</h2>
+      <p>It's a single time people can use to coordinate events on the Internet. If you round to the nearest <tt>0x100</tt> you'll be within six minutes.</p>
+      <h2>Didn't Swatch do something like this?</h2>
+      <p>Yeah, but they divided the day into 1,000. That's just not geeky enough!</p>
+      <h2>Are you serious?</h2>
+      <p>No, this was just done for fun. But hey, some people are already finding it useful. And wouldn't you rather have something geeky at this domain rather than some squatter? :-)</p>
+      <h2>Is this based on some time server?</h2>
+      <p>Not yet. Currently it's based on the local time of your computer, but we'd like to synchronize with a more reliable source.</p>
+      <h2>Can you add a converter?</h2>
+      <p>We've just added a converter from <b>Geek Time</b> to a variety of timezones. We're working on a converter from date/time/timezone to <b>Geek Time</b>.</p>
+      <h2>API</h2>
+      <p>We have added a few simple GET APIs that return a simple bit of JSON</p>
+
+      <p>To get the current GeekTime:</p>
+      <pre>
+          GET http://geektime.org/api/v1/current/
+
+          {
+              "geekdate": "0x0C9",
+              "geektime": "0x4D11"
+          }
+      </pre>
+
+      <p>To convert a known regular time, pass in an ISO formatted UTC time:</p>
+      <pre>
+          GET http://geektime.org/api/v1/2010-07-20T20:30:33/
+
+          {
+              "geekdate": "0x0C9",
+              "geektime": "0xDAC4"
+          }
+      </pre>
+    </div>
+    <script src="http://fb.me/react-0.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="static/js/site.js"></script>
+  </body>
+</html>
